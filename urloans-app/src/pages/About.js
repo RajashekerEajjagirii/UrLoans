@@ -10,6 +10,7 @@ const About = () => {
             <CardContent>
                 <Typography sx={{opacity:0.2,fontSize:30,fontWeight:600}}>URLoans</Typography>
                 <Typography>UrLoans is a platform to provide loans in easy manner as well as in short time</Typography>
+                <Typography>It's Working</Typography>
             </CardContent>
         </Card>
     );
