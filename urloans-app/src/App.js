@@ -23,6 +23,7 @@ import EditHomeLoans from "./pages/EditHomeLoans";
 import HlUserView from "./pages/HlUserView";
 import BusinessLoansList from "./pages/BusinessLoansList";
 import LAPList from "./pages/LAPList";
+import NotFound from "./pages/NotFound";
 
 const App=()=> {
   
@@ -31,11 +32,11 @@ const App=()=> {
  
   useEffect(()=>{
     let admin=sessionStorage.getItem("dt");
-    // if(admin==='' || admin===null){
-    //   navigate("/");
-    // }else{
-    //   navigate("/adminhome");
-    // }
+    if(admin==='' || admin===null){
+      navigate("/");
+    }else{
+      navigate("/adminhome/*");
+    }
   },[])
 
   return (
@@ -62,6 +63,7 @@ const App=()=> {
             <Route path="businessloans" element={<BusinessLoansList />} />
             <Route path="propertyloans" element={<LAPList />} />
           </Route>
+          <Route path="/*" element={<NotFound/>} />
           
         </Routes>
         <Footer />

@@ -49,7 +49,7 @@ const HomeloansList=()=> {
     const[id,setId]=useState();
     const[currentPage,setCurrentPage]=useState(1);
     const recordsPerPage=5;
-    const[userData,isLoading,isError]=useFetch("/homeloans/getAll");
+    const[userData,isLoading,isError]=useFetch("http://localhost:8080/homeloans/getAll");
     
     //Print PDF
       const generatePDF=useReactToPrint({
