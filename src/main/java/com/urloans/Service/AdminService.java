@@ -14,23 +14,30 @@ import com.urloans.Repository.AdminRepo;
 @Service
 public class AdminService {
 
-	@Autowired
+
 	private AdminRepo adminRepo;
-	
-	
+
+	@Autowired
+	public AdminService(AdminRepo adminRepo) {
+		super();
+		this.adminRepo = adminRepo;
+	}
 	//Adding Admin's Data
 	
 	public Admin saveAdmin(Admin admin) {
-		if(admin.getEmail()==null || admin.getEmail().isEmpty()){
-			throw new BadRequestException("Email should not be empty or null");
-		} else if (admin.getPassword().isEmpty()) {
-			throw new BadRequestException("Password should not be Empty");
-		}else if(admin.getUserName()==null || admin.getUserName().isEmpty()){
-			throw new BadRequestException("User name should not be empty or null");
+//		Admin ad=null;
+		if(admin !=null) {
+			if (admin.getEmail() == null || admin.getEmail().isEmpty()) {
+				throw new BadRequestException("Email should not be empty or null");
+			} else if (admin.getPassword().isEmpty()) {
+				throw new BadRequestException("Password should not be Empty");
+			} else if (admin.getUserName() == null || admin.getUserName().isEmpty()) {
+				throw new BadRequestException("User name should not be empty or null");
+			} else {
+				return adminRepo.save(admin);
+			}
 		}
-		Admin ad=null;
-		ad=adminRepo.save(admin);
-		return ad;
+		throw new BadRequestException("Admin User details should not be null");
 	}
 
 

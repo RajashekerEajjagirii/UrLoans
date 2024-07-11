@@ -50,9 +50,9 @@ public class AdminController {
 	
 	@PostMapping("/add")
 	public ResponseEntity<Admin> add(@RequestBody Admin admin) {
-		Admin ad=null;
+//		Admin ad=null;
 			admin.setPassword(passwordEncoder.encode(admin.getPassword()));
-			ad=adminService.saveAdmin(admin);
+			Admin ad=adminService.saveAdmin(admin);
 			return ResponseEntity.status(HttpStatus.CREATED).body(ad);
 
 		

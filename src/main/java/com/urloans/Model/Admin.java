@@ -9,8 +9,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import lombok.AllArgsConstructor;
 
 @Entity
+@AllArgsConstructor
 public class Admin {
 	
 	@Id
